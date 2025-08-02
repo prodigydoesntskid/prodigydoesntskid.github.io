@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #101010; /* A darker, solid background */
+  color: #fff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+#grid-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  z-index: 0; /* Behind the main content */
+}
+
+.grid-item {
+  /* Faint border to create the grid lines */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  /* Smooth transition for background color and box shadow */
+  transition: background-color 0.5s ease-out, box-shadow 0.5s ease-out;
+}
+
+.container {
+  text-align: center;
+  position: relative;
+  z-index: 1; /* In front of the grid */
+}
+
+.title {
+  font-size: 4em;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #ff4d4d;
+  text-shadow: 0 0 10px #ff4d4d, 0 0 20px #ff4d4d, 0 0 30px #ff0000;
+}
+
+.title .highlight {
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff;
+}
+
+.stats {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
+.creator {
+  font-size: 1.1em;
+  color: #ccc;
+  margin: 5px 0;
+}
+
+.skills {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.skill {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 1.1em;
+  box-shadow: 0 0 10px rgba(255, 77, 77, 0.5);
+}
+
+/* --- ADD THIS CSS TO THE END OF YOUR FILE --- */
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px; /* Space between icons */
+  margin-top: 30px; /* Space above the icons */
+}
+
+.social-links a {
+  color: #ccc; /* Icon color */
+  font-size: 2em; /* Icon size */
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover */
+}
+
+.social-links a:hover {
+  color: #ff4d4d; /* Glow color on hover */
+  transform: scale(1.2); /* Make icon slightly bigger on hover */
+}
