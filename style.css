@@ -1,0 +1,109 @@
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body { background: linear-gradient(135deg, #1a1a1a, #0d2c15, #006400); min-height: 100vh; display: flex; justify-content: center; align-items: center; overflow: hidden; position: relative; animation: bgShift 15s infinite alternate; }
+@keyframes bgShift {
+    0% { background: linear-gradient(135deg, #1a1a1a, #006400, #008000); }
+    100% { background: linear-gradient(135deg, #008000, #006400, #1a1a1a); }
+}
+body::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, rgba(0, 255, 127, 0.1) 1px, transparent 1px); background-size: 20px 20px; opacity: 0.5; animation: particleGlow 10s infinite alternate; }
+@keyframes particleGlow {
+    0% { opacity: 0.4; }
+    100% { opacity: 0.7; }
+}
+
+.container { background: rgba(0, 0, 0, 0.85); border-radius: 20px; padding: 30px; width: 90%; max-width: 600px; box-shadow: 0 0 40px rgba(0, 255, 127, 0.7), inset 0 0 10px rgba(0, 255, 127, 0.2); position: relative; backdrop-filter: blur(5px); border: 2px solid #00ff7f; animation: borderGlow 3s infinite alternate, fadeIn 1s ease-in; z-index: 1; }
+@keyframes borderGlow {
+    0% { border-color: #00ff7f; }
+    100% { border-color: #39ff14; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.logo { text-align: center; margin-bottom: 20px; }
+#skull-logo { width: 100px; height: 100px; color: #39ff14; filter: drop-shadow(0 0 8px #39ff14) drop-shadow(0 0 15px #00ff7f); animation: skullGlow 3s infinite alternate; }
+@keyframes skullGlow {
+    from { filter: drop-shadow(0 0 8px #39ff14) drop-shadow(0 0 15px #00ff7f); transform: scale(1); }
+    to { filter: drop-shadow(0 0 15px #39ff14) drop-shadow(0 0 30px #00ff7f); transform: scale(1.05); }
+}
+
+h1 { color: #00ff7f; text-align: center; text-shadow: 0 0 15px rgba(0, 255, 127, 0.7); margin-bottom: 25px; font-size: 32px; animation: textGlow 2s infinite alternate; }
+@keyframes textGlow {
+    0% { text-shadow: 0 0 15px rgba(0, 255, 127, 0.7); }
+    100% { text-shadow: 0 0 25px rgba(57, 255, 20, 1); }
+}
+
+.input-group { margin-bottom: 15px; position: relative; }
+.input-group label { display: block; color: #39ff14; margin-bottom: 5px; font-size: 14px; animation: labelPulse 2s infinite; }
+@keyframes labelPulse {
+    0% { color: #39ff14; }
+    50% { color: #90ee90; }
+    100% { color: #39ff14; }
+}
+
+input, textarea, select { width: 100%; padding: 12px; border: 1px solid #00ff7f; border-radius: 8px; background: #1a1a1a; color: #fff; font-size: 16px; transition: all 0.3s ease; box-shadow: inset 0 0 5px rgba(0, 255, 127, 0.3); }
+input:focus, textarea:focus, select:focus { outline: none; box-shadow: 0 0 10px #00ff7f, inset 0 0 8px rgba(0, 255, 127, 0.5); background: #2a2a2a; }
+textarea { resize: vertical; min-height: 80px; }
+input[type="file"] { border: 1px dashed #00ff7f; padding: 10px; }
+input[type="file"]::file-selector-button { background: #00ff7f; color: #000; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; transition: background 0.3s; }
+input[type="file"]::file-selector-button:hover { background: #39ff14; }
+
+.buttons, .action-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-top: 20px; }
+.btn { padding: 12px 20px; border: 1px solid transparent; border-radius: 8px; background: linear-gradient(45deg, #00ff7f, #39ff14); color: #000; font-weight: bold; font-size: 14px; cursor: pointer; transition: all 0.3s ease; flex-grow: 1; text-align: center; box-shadow: 0 0 10px rgba(0, 255, 127, 0.5); }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 0 20px rgba(57, 255, 20, 0.8); background: linear-gradient(45deg, #39ff14, #90ee90); }
+.btn.active { background: #1a1a1a; color: #00ff7f; border: 1px solid #00ff7f; box-shadow: inset 0 0 10px rgba(0, 255, 127, 0.5); }
+
+.panel-buttons { position: absolute; top: 15px; right: 15px; display: flex; gap: 10px; z-index: 3; }
+.autotyper-btn, .gc-changer-btn, .image-sender-btn, .notifications-btn, .settings-btn { width: 32px; height: 32px; border: none; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 0 10px rgba(0, 255, 127, 0.5); background-color: #00ff7f; }
+.settings-btn { clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+.notifications-btn { clip-path: polygon(50% 0%, 85% 25%, 85% 75%, 50% 100%, 15% 75%, 15% 25%); }
+.autotyper-btn { clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%); }
+.gc-changer-btn { clip-path: polygon(25% 0%, 100% 0, 100% 100%, 25% 100%, 0 50%); }
+.image-sender-btn { clip-path: polygon(0 0, 80% 0, 100% 20%, 100% 100%, 0 100%); }
+.autotyper-btn:hover, .gc-changer-btn:hover, .image-sender-btn:hover, .notifications-btn:hover, .settings-btn:hover { transform: rotate(15deg) scale(1.1); box-shadow: 0 0 15px rgba(57, 255, 20, 0.8); background-color: #39ff14; }
+
+.panel { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); z-index: 1000; padding: 20px; justify-content: center; align-items: center; animation: fadeIn 0.3s ease; }
+.panel.active { display: flex; }
+.panel-content { background: rgba(0, 0, 0, 0.9); border-radius: 15px; padding: 30px; width: 90%; max-width: 500px; color: #fff; border: 2px solid #00ff7f; box-shadow: 0 0 30px rgba(0, 255, 127, 0.7); position: relative; animation: zoomIn 0.5s ease; z-index: 1001; }
+@keyframes zoomIn {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+.panel-header { text-align: center; margin-bottom: 20px; }
+.panel-header h2 { color: #00ff7f; font-size: 28px; text-shadow: 0 0 10px rgba(0, 255, 127, 0.5); animation: textGlow 2s infinite alternate; }
+.close-btn { position: absolute; top: 15px; right: 15px; background: none; border: none; color: #00ff7f; font-size: 24px; cursor: pointer; transition: all 0.3s ease; z-index: 1002; }
+.close-btn:hover { color: #39ff14; transform: rotate(90deg); }
+
+.profile-info { text-align: center; margin-bottom: 20px; }
+.profile-info img { width: 100px; height: 100px; border-radius: 50%; border: 3px solid #00ff7f; margin-bottom: 10px; }
+#globalName { font-size: 22px; font-weight: bold; color: #fff; }
+#username { font-size: 16px; color: #8e9297; }
+.settings-section { margin-top: 25px; }
+.settings-section h3 { color: #39ff14; border-bottom: 1px solid #39ff14; padding-bottom: 5px; margin-bottom: 15px; }
+
+.action-btn, .hypesquad-btn { padding: 10px 20px; border: 1px solid #00ff7f; border-radius: 8px; background: transparent; color: #00ff7f; font-weight: bold; cursor: pointer; transition: all 0.3s ease; }
+.action-btn:hover, .hypesquad-btn:hover { background: #00ff7f; color: #000; box-shadow: 0 0 15px #00ff7f; }
+.action-btn.start { border-color: #39ff14; color: #39ff14; }
+.action-btn.start:hover { background: #39ff14; color: #000; }
+.action-btn.stop { border-color: #ff4d4d; color: #ff4d4d; }
+.action-btn.stop:hover { background: #ff4d4d; color: #fff; }
+.action-btn:disabled { background: #333; color: #888; border-color: #555; cursor: not-allowed; }
+
+.autotyper-modifiers {
+    display: flex;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.image-preview-container { margin-top: 15px; text-align: center; }
+.image-preview { max-width: 100%; max-height: 200px; border: 1px solid #00ff7f; border-radius: 8px; display: none; margin: 0 auto; }
+.image-preview.active { display: block; }
+
+.error-message { color: #ff4d4d; text-align: center; margin-top: 15px; font-size: 14px; background: rgba(255, 77, 77, 0.1); border: 1px solid #ff4d4d; border-radius: 8px; padding: 10px; display: none; z-index: 2; }
+.error-message.active { display: block; }
+.error-message.success { color: #39ff14; background: rgba(57, 255, 20, 0.1); border-color: #39ff14; }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #1a1a1a; }
+::-webkit-scrollbar-thumb { background: #00ff7f; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #39ff14; }
